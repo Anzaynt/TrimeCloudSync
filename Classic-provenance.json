@@ -1,0 +1,23 @@
+{
+  "repository": "https://github.com/harry10086/mytrime",
+  "commit": "bf6becdb97ae3a7858244b4143176747ec539f80",
+  "source_path": "rime/classic.trime.yaml",
+  "license": "GPL-3.0-or-later as declared in source",
+  "intended_device": "OnePlus ACE 3 Pro; no physical device connected",
+  "changes": [
+    "260dp keyboard",
+    "34dp candidate row",
+    "22sp toolbar icons/4dp padding",
+    "visible Chinese/English toggle",
+    "system font fallback",
+    "material icon name normalization",
+    "wechat_dark selected on first upgrade",
+    "expand three local keyboard include/list patch definitions",
+    "use integer 2dp horizontal gap and omit empty legacy per-key offsets/colors for current theme decoder",
+    "clear previously managed imported theme resources after built-in theme activates",
+    "0.2.6: rename main space keys to 桉 泽, remove long-press language switch and hint",
+    "0.2.6: remove theme bottom padding and enable existing ignore-system-gesture-insets preference; OS-owned IME controls still require phone settings"
+  ],
+  "upstream_main_key_positions_and_gestures_preserved": false,
+  "material_icons_verified": 33
+}

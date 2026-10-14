@@ -1,0 +1,128 @@
+[
+  {
+    "repo": "google/snappy",
+    "sha": "32ded457c0b1fe78ceb8397632c416568d6714a0",
+    "path": "app/src/main/jni/snappy",
+    "archive_url": "https://codeload.github.com/google/snappy/zip/32ded457c0b1fe78ceb8397632c416568d6714a0"
+  },
+  {
+    "repo": "hchunhui/librime-lua",
+    "sha": "68f9c364a2d25a04c7d4794981d7c796b05ab627",
+    "path": "app/src/main/jni/librime-lua",
+    "archive_url": "https://codeload.github.com/hchunhui/librime-lua/zip/68f9c364a2d25a04c7d4794981d7c796b05ab627"
+  },
+  {
+    "repo": "hchunhui/librime-lua",
+    "sha": "9c53b362229766a97b83683b9541c46679118a90",
+    "path": "app/src/main/jni/librime-lua-deps",
+    "archive_url": "https://codeload.github.com/hchunhui/librime-lua/zip/9c53b362229766a97b83683b9541c46679118a90"
+  },
+  {
+    "repo": "lotem/librime-octagram",
+    "sha": "bd12863f45fbbd5c7db06d5ec8be8987b10253bf",
+    "path": "app/src/main/jni/librime-octagram",
+    "archive_url": "https://codeload.github.com/lotem/librime-octagram/zip/bd12863f45fbbd5c7db06d5ec8be8987b10253bf"
+  },
+  {
+    "repo": "rime/librime-predict",
+    "sha": "67c2881914a0242fc14ec7d6877782771b75800c",
+    "path": "app/src/main/jni/librime-predict",
+    "archive_url": "https://codeload.github.com/rime/librime-predict/zip/67c2881914a0242fc14ec7d6877782771b75800c"
+  },
+  {
+    "repo": "rime/rime-prelude",
+    "sha": "3803f09458072e03b9ed396692ce7e1d35c88c95",
+    "path": "app/data/rime/prelude",
+    "archive_url": "https://codeload.github.com/rime/rime-prelude/zip/3803f09458072e03b9ed396692ce7e1d35c88c95"
+  },
+  {
+    "repo": "rime/rime-luna-pinyin",
+    "sha": "46acf03142c12b5aeed7002675046bf7255eed35",
+    "path": "app/data/rime/luna-pinyin",
+    "archive_url": "https://codeload.github.com/rime/rime-luna-pinyin/zip/46acf03142c12b5aeed7002675046bf7255eed35"
+  },
+  {
+    "repo": "rime/librime",
+    "sha": "33e78140250125871856cdc5b42ddc6a5fcd3cd4",
+    "path": "app/src/main/jni/librime",
+    "archive_url": "https://codeload.github.com/rime/librime/zip/33e78140250125871856cdc5b42ddc6a5fcd3cd4"
+  },
+  {
+    "repo": "rime/rime-stroke",
+    "sha": "7c9874c6b2e0b94947653e9a7de6f99623ff27e4",
+    "path": "app/data/rime/stroke",
+    "archive_url": "https://codeload.github.com/rime/rime-stroke/zip/7c9874c6b2e0b94947653e9a7de6f99623ff27e4"
+  },
+  {
+    "repo": "BYVoid/OpenCC",
+    "sha": "907bfcbbd3aae86ff04bc8eaca67c8af03108ddf",
+    "path": "app/src/main/jni/OpenCC",
+    "archive_url": "https://codeload.github.com/BYVoid/OpenCC/zip/907bfcbbd3aae86ff04bc8eaca67c8af03108ddf"
+  },
+  {
+    "repo": "rime/rime-essay",
+    "sha": "0766c929ec3e578c2c80861e988decd3703a1c3d",
+    "path": "app/data/rime/essay",
+    "archive_url": "https://codeload.github.com/rime/rime-essay/zip/0766c929ec3e578c2c80861e988decd3703a1c3d"
+  },
+  {
+    "repo": "google/glog",
+    "sha": "7b134a5c82c0c0b5698bb6bf7a835b230c5638e4",
+    "path": "app/src/main/jni/librime/deps/glog",
+    "archive_url": "https://codeload.github.com/google/glog/zip/7b134a5c82c0c0b5698bb6bf7a835b230c5638e4"
+  },
+  {
+    "repo": "google/benchmark",
+    "sha": "d572f4777349d43653b21d6c2fc63020ab326db2",
+    "path": "app/src/main/jni/snappy/third_party/benchmark",
+    "archive_url": "https://codeload.github.com/google/benchmark/zip/d572f4777349d43653b21d6c2fc63020ab326db2"
+  },
+  {
+    "repo": "google/leveldb",
+    "sha": "99b3c03b3284f5886f9ef9a4ef703d57373e61be",
+    "path": "app/src/main/jni/librime/deps/leveldb",
+    "archive_url": "https://codeload.github.com/google/leveldb/zip/99b3c03b3284f5886f9ef9a4ef703d57373e61be"
+  },
+  {
+    "repo": "google/googletest",
+    "sha": "b796f7d44681514f58a683a3a71ff17c94edb0c1",
+    "path": "app/src/main/jni/snappy/third_party/googletest",
+    "archive_url": "https://codeload.github.com/google/googletest/zip/b796f7d44681514f58a683a3a71ff17c94edb0c1"
+  },
+  {
+    "repo": "s-yata/marisa-trie",
+    "sha": "3e87d53b78e15f2f43783d5e376561a8c9722051",
+    "path": "app/src/main/jni/librime/deps/marisa-trie",
+    "archive_url": "https://codeload.github.com/s-yata/marisa-trie/zip/3e87d53b78e15f2f43783d5e376561a8c9722051"
+  },
+  {
+    "repo": "jbeder/yaml-cpp",
+    "sha": "2f86d13775d119edbb69af52e5f566fd65c6953b",
+    "path": "app/src/main/jni/librime/deps/yaml-cpp",
+    "archive_url": "https://codeload.github.com/jbeder/yaml-cpp/zip/2f86d13775d119edbb69af52e5f566fd65c6953b"
+  },
+  {
+    "repo": "google/googletest",
+    "sha": "f8d7d77c06936315286eb55f8de22cd23c188571",
+    "path": "app/src/main/jni/librime/deps/googletest",
+    "archive_url": "https://codeload.github.com/google/googletest/zip/f8d7d77c06936315286eb55f8de22cd23c188571"
+  },
+  {
+    "repo": "BYVoid/OpenCC",
+    "sha": "556ed22496d650bd0b13b6c163be9814637970ae",
+    "path": "app/src/main/jni/librime/deps/opencc",
+    "archive_url": "https://codeload.github.com/BYVoid/OpenCC/zip/556ed22496d650bd0b13b6c163be9814637970ae"
+  },
+  {
+    "repo": "google/benchmark",
+    "sha": "bf585a2789e30585b4e3ce6baf11ef2750b54677",
+    "path": "app/src/main/jni/librime/deps/leveldb/third_party/benchmark",
+    "archive_url": "https://codeload.github.com/google/benchmark/zip/bf585a2789e30585b4e3ce6baf11ef2750b54677"
+  },
+  {
+    "repo": "google/googletest",
+    "sha": "c27acebba3b3c7d94209e0467b0a801db4af73ed",
+    "path": "app/src/main/jni/librime/deps/leveldb/third_party/googletest",
+    "archive_url": "https://codeload.github.com/google/googletest/zip/c27acebba3b3c7d94209e0467b0a801db4af73ed"
+  }
+]

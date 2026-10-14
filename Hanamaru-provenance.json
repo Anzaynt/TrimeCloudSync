@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/ENOA-REIAH-UION/my-trime-theme",
+  "commit": "0439e73b3b2989b41bd285022d1ced491ce7a614",
+  "license": "Repository does not declare a license; retained attribution and files for requested personal build",
+  "compatibility_changes": [
+    "config_version=3.0",
+    "comment_position=right",
+    "reset_ascii_mode_on_focus_change"
+  ]
+}

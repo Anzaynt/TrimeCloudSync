@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/Mintimate/RimeTheme",
+  "commit": "3ced20a6a43b57022385a8111a07e57ddc07e247",
+  "dependency": "https://github.com/nopdan/danjing",
+  "changes": [
+    "restore missing conf/styl/preset_keys via danjing",
+    "retarget namespace to mint",
+    "expand DSL using Windows librime 1.13.1",
+    "adapt current style keys"
+  ],
+  "license": "GPL-3.0",
+  "dependency_commit": "c0c99ef5a3ecf7f8f3633e43de2272d0f3c6bc96",
+  "dependency_sha256": "3922648629c7afce9222ec5a60469b4f28f21b850ef234edda80a3efb8fec703",
+  "native_expansion_succeeded": true,
+  "removed_native_only_build_info": true
+}

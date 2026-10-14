@@ -1,0 +1,69 @@
+{
+  "apk": "TrimeCloudSync-0.2.7-universal.apk",
+  "apk_sha256": "f6a76d5f77c8da60ef540e54bd001f3d6d10f67043aaa8386cda556e46cec898",
+  "apk_bytes": 14577734,
+  "application_id": "top.loto2.rimecloudime",
+  "min_sdk": 26,
+  "target_sdk": 35,
+  "compile_sdk": 37,
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86",
+    "x86_64"
+  ],
+  "build_result": "Gradle assembleRelease successful, including lintVitalRelease",
+  "signature_schemes": [
+    "v2",
+    "v3"
+  ],
+  "zipalign_16k_verified": true,
+  "input_method_service_and_provider_manifest_verified": true,
+  "private_keys_not_embedded": true,
+  "native_libraries_match_verified_official_apks": {
+    "lib/arm64-v8a/librime_jni.so": "b05302072dbb4ecf4a68bed0967d711ffa7efc5ea9bf5a8e906e8badc6982690",
+    "lib/armeabi-v7a/librime_jni.so": "6771dd4e790e05c9d021914b4e5ee03fad368f7855552be0f367a0046d3c48c5",
+    "lib/x86/librime_jni.so": "4d5c54eae983b690474fc272f62e15d5394c2e6200259cebc776f74dc38f7e74",
+    "lib/x86_64/librime_jni.so": "4c17e5bec61f22f856fd8369debf89b8583a874134036bf0bf0db2389416dcd2"
+  },
+  "source_zip": "TrimeCloudSync-0.2.7-source.zip",
+  "source_zip_sha256": "d23372f6ef4e3fc6f8f18b2072efda44550dbf68bee5054a3711b4e502776913",
+  "source_files": 5010,
+  "native_merge_protocol_test": {
+    "engine": "installed Windows librime (protocol test only)",
+    "desktop_records_preserved": {
+      "luna_pinyin.userdb.txt": 5,
+      "rime_ice.userdb.txt": 27197
+    },
+    "new_phone_record_merged": true,
+    "repeat_sync_idempotent": true,
+    "export_has_own_device_id": true
+  },
+  "limitations": [
+    "No Android device or emulator runtime test",
+    "Windows native merge test uses librime 1.13.1; Android native libs are the pinned corresponding Trime nightly libraries"
+  ],
+  "tests": [
+    {
+      "suite": "com.osfans.trime.ime.switches.SwitchOptionLayoutTest",
+      "tests": 3,
+      "failures": 0,
+      "timestamp": "2026-10-12T15:09:03.783Z"
+    },
+    {
+      "suite": "com.osfans.trime.data.theme.HanamaruTest",
+      "tests": 4,
+      "failures": 0,
+      "timestamp": "2026-10-12T15:09:02.019Z"
+    }
+  ],
+  "menu_fix": {
+    "responsive_row_height": true,
+    "system_navigation_inset_padding": true,
+    "scrolling_for_limited_space": true,
+    "menu_button_size_dp": 40,
+    "phone_runtime_verified": false
+  },
+  "theme_asset_matches_verified_source": true,
+  "signing_certificate_sha256": "42013e1d2a3e28df6e04da621fcf3ec45261115d90b5cc51af462478683fa59f"
+}
