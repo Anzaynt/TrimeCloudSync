@@ -192,8 +192,12 @@ class SwitchOptionWindow(di: DI) :
             if (view.height > 0) {
                 // Large accessibility fonts keep enough label space; the list scrolls if needed.
                 val minimum = maxOf(context.dp(72), context.dp(56) + view.resources.displayMetrics.scaledDensity.times(16).toInt())
+                val columns = SwitchOptionLayout.columns(view.height, view.paddingBottom, adapter.itemCount, view.width,
+                    (context.dp(72) * view.resources.configuration.fontScale).toInt(), minimum)
+                val manager = view.layoutManager as androidx.recyclerview.widget.GridLayoutManager
+                if (manager.spanCount != columns) manager.spanCount = columns
                 adapter.rowHeight = SwitchOptionLayout.rowHeight(
-                    view.height, view.paddingBottom, adapter.itemCount, minimum, maxOf(minimum, context.dp(96)),
+                    view.height, view.paddingBottom, adapter.itemCount, minimum, maxOf(minimum, context.dp(96)), columns,
                 )
             }
         }

@@ -1,8 +1,8 @@
 {
-    "sha256": "ecbcd19442d63ee69239ef0bf4cd5602fa23c696ded0ac3aa762e7b86a54fcf5",
+    "sha256": "8cf3bccbba74c62577762a024e1daaec9408d83c8df254df91e850f5ae5e2e94",
     "files": {
         "shared": "",
-        "shared/classic.trime.yaml": "8256a06dfde8d1b210c4cc4185a49757cc2ea9baeb6f82297710cb45de778f25",
+        "shared/classic.trime.yaml": "de5fec42f29b110bd30928a7e897a6fe3b1c6bc3b8de7542a8dab6d48c3c5533",
         "shared/default.yaml": "dd55653a991f9418eb425ee2112666f82e3e753c5ce3ed5702dd243041a45382",
         "shared/essay.txt": "196d508a9bb12fc6d711eed83f5ddc4d5c2d382d92d15b4e51175e4d3802cfab",
         "shared/key_bindings.yaml": "5c484257cccbab899bc874dfeb9257ce7190c99fee3abc33321767c8dac56af9",
@@ -52,6 +52,7 @@
         "shared/trime.yaml": "44d29a6ace16ca9f59b3d6bc32b457a8ce41f8b080d94fdbe67e8d89900983f6",
         "theme-licenses": "",
         "theme-licenses/桉泽版-0.2.6使用说明.md": "f827444b3c19e91fc6ca1666c1420c2199dcb8687e0b3ae7c5cd71ff53a6e739",
+        "theme-licenses/矮键盘与在线更新-0.2.8使用说明.md": "569fd7e4a3a79b3f0873c5fedd772286afb5accb708a3603ea1ad4c2c889802c",
         "theme-licenses/菜单修正版-0.2.7使用说明.md": "c563e6a073eeecaa9fd5bce0c61988ac1a3e3a9fa804944ccdabeaf867dbc14d"
     }
 }

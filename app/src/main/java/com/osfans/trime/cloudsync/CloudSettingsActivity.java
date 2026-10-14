@@ -11,12 +11,17 @@ import java.io.*;
 
 import java.util.concurrent.TimeUnit;
 public class CloudSettingsActivity extends Activity {
+    private AppUpdates appUpdates;
     private TextView status;private EditText access,secret;private Button save,sync;private CheckBox automatic;private CloudCredentials credentials;
     @Override public void onCreate(Bundle saved){super.onCreate(saved);credentials=new CloudCredentials(this);
         ScrollView scroll=new ScrollView(this);LinearLayout content=new LinearLayout(this);content.setOrientation(1);int p=(int)(22*getResources().getDisplayMetrics().density);content.setPadding(p,p,p,p);scroll.addView(content);setContentView(scroll);scroll.setOnApplyWindowInsetsListener((v,insets)->{content.setPadding(p,p+insets.getSystemWindowInsetTop(),p,p+insets.getSystemWindowInsetBottom());return insets;});
         TextView title=new TextView(this);title.setText("同文 · 云同步");title.setTextSize(28);content.addView(title);
         TextView guide=new TextView(this);guide.setText("首次先完成输入法启用，再填写 S3 密钥并点一键同步。方案、词库会从电脑云备份导入；手机键盘和皮肤单独保留。初次约 296 MB，请保持页面打开。云同步使用应用专属存储，无需文件夹授权。");guide.setTextSize(16);content.addView(guide);
         Button keyboard=new Button(this);keyboard.setText("输入法设置与启用");content.addView(keyboard);keyboard.setOnClickListener(v->startActivity(new Intent(Intent.ACTION_MAIN).setClassName(this,"com.osfans.trime.ui.main.MainActivity")));
+        TextView updateStatus=new TextView(this);updateStatus.setText("当前版本："+com.osfans.trime.BuildConfig.VERSION_NAME+"\n打开本页每天自动检查一次新版，也可手动检查。");content.addView(updateStatus);
+        appUpdates=new AppUpdates(this,updateStatus);
+        Button checkUpdate=new Button(this);checkUpdate.setText("检查 GitHub 新版本");content.addView(checkUpdate);checkUpdate.setOnClickListener(v->appUpdates.check(true));
+        Button installUpdate=new Button(this);installUpdate.setText("安装已下载更新");content.addView(installUpdate);installUpdate.setOnClickListener(v->appUpdates.installDownloaded());
         access=new EditText(this);access.setHint("S3 Access Key");access.setSingleLine(true);access.setText(credentials.prefs.getString("access",""));content.addView(access);
         secret=new EditText(this);secret.setHint("S3 Secret Key（本机加密保存）");secret.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);secret.setSingleLine(true);secret.setSaveEnabled(false);secret.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO);content.addView(secret);
         save=new Button(this);save.setText("保存密钥");content.addView(save);save.setOnClickListener(v->{try{credentials.save(access.getText().toString(),secret.getText().toString());secret.setText("");status.setText("密钥已加密保存");}catch(Exception e){status.setText(e.getMessage());}});
@@ -35,6 +40,10 @@ public class CloudSettingsActivity extends Activity {
         GitHubTheme.initialize(this);
         EditText test=new EditText(this);test.setHint("在这里试用输入法");content.addView(test);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        appUpdates.checkAutomatically();
     }
+
+    @Override protected void onResume(){super.onResume();if(appUpdates!=null)appUpdates.resumeInstall();}
+    @Override protected void onDestroy(){if(appUpdates!=null)appUpdates.destroy();super.onDestroy();}
 
 }

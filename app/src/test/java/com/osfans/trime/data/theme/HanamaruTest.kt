@@ -14,11 +14,17 @@ class HanamaruTest : StringSpec({
     "classic personal layout preserves frequent keys and swipes with readable toolbar" {
         val theme = ThemeTestSupport.decodeBuiltinTheme("classic.trime.yaml")
         theme.name shouldBe "经典·顺手版"
-        theme.style.keyboardHeight shouldBe 260
+        theme.style.keyboardHeight shouldBe 208
         theme.style.keyboardPaddingBottom shouldBe 0
         theme.style.candidateViewHeight shouldBe 34
         theme.presetColorSchemes.containsKey("wechat_dark") shouldBe true
         val keys = theme.presetKeyboards.getValue("default").keys
+        theme.style.horizontalGap shouldBe 1
+        keys[11].width shouldBe 11f
+        keys[22].width shouldBe 10.5f
+        listOf(0..9, 10..20, 21..29, 30..34).forEach { row ->
+            row.sumOf { keys[it].width.takeIf { value -> value > 0 }?.toDouble() ?: 10.0 } shouldBe 100.0
+        }
         val space = keys.first { it.click == com.osfans.trime.data.theme.model.KeyActionToken.Plain("space") }
         space.width shouldBe 40f
         space.longClick shouldBe null

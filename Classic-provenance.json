@@ -16,7 +16,9 @@
     "use integer 2dp horizontal gap and omit empty legacy per-key offsets/colors for current theme decoder",
     "clear previously managed imported theme resources after built-in theme activates",
     "0.2.6: rename main space keys to 桉 泽, remove long-press language switch and hint",
-    "0.2.6: remove theme bottom padding and enable existing ignore-system-gesture-insets preference; OS-owned IME controls still require phone settings"
+    "0.2.6: remove theme bottom padding and enable existing ignore-system-gesture-insets preference; OS-owned IME controls still require phone settings",
+    "0.2.8: keyboard height 208dp, landscape 160dp, gaps 1dp/3dp, 22sp letters",
+    "0.2.8: second row letters 11 percent, third row letters 10.5 percent; every row totals 100 percent"
   ],
   "upstream_main_key_positions_and_gestures_preserved": false,
   "material_icons_verified": 33

@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2015 - 2024 Rime community
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Derived from harry10086/mytrime; same-file keyboard patches expanded.
+# Derived from harry10086/mytrime; expanded for current Trime.
 config_version: '3.0'
 name: 经典·顺手版
 author: 风花絮
@@ -18,19 +18,19 @@ style:
   comment_vertical_bias: 0.0
   comment_text_size: 12
   hanb_font: []
-  horizontal_gap: 2
+  horizontal_gap: 1
   key_border: 1
   key_font: []
   key_height: 54
   key_hint_offset_x: 0
   key_long_text_size: 16
-  key_text_size: 24
+  key_text_size: 22
   key_width: 10.0
   label_text_size: 22
   label_font: []
   latin_font: []
-  keyboard_height: 260
-  keyboard_height_land: 200
+  keyboard_height: 208
+  keyboard_height_land: 160
   keyboard_padding_bottom: 0
   keyboard_padding_land_bottom: 0
   key_symbol_offset_x: 0
@@ -46,7 +46,7 @@ style:
   symbol_font: []
   symbol_text_size: 10
   text_font: []
-  vertical_gap: 4
+  vertical_gap: 3
   enter_label_mode: 0
   enter_labels:
     go: ➢
@@ -1208,7 +1208,7 @@ preset_keyboards:
       swipe_down: '0'
       key_back_color: bh1
       key_text_color: th1
-    - width: 5
+    - width: 0.5
       key_back_color: bh2
       key_text_color: th2
     - click: a
@@ -1223,6 +1223,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: s
       popup:
       - '`'
@@ -1233,6 +1234,7 @@ preset_keyboards:
       swipe_down: '`'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: d
       popup:
       - '@'
@@ -1243,6 +1245,7 @@ preset_keyboards:
       swipe_down: '@'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: f
       popup:
       - '#'
@@ -1253,6 +1256,7 @@ preset_keyboards:
       swipe_down: '#'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: g
       popup:
       - $
@@ -1263,6 +1267,7 @@ preset_keyboards:
       swipe_down: $
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: h
       popup:
       - '*'
@@ -1273,6 +1278,7 @@ preset_keyboards:
       swipe_down: '*'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: j
       popup:
       - “”{Left}
@@ -1283,6 +1289,7 @@ preset_keyboards:
       swipe_down: “”{Left}
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: k
       popup:
       - (-)
@@ -1293,6 +1300,7 @@ preset_keyboards:
       swipe_down: (){Left}
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: l
       popup:
       - \
@@ -1303,7 +1311,8 @@ preset_keyboards:
       swipe_down: \
       key_back_color: bh2
       key_text_color: th2
-    - width: 5
+      width: 11
+    - width: 0.5
       key_back_color: bh2
       key_text_color: th2
     - click: Shift_L
@@ -1311,7 +1320,7 @@ preset_keyboards:
       label_symbol: ' '
       double_click: Shift_L3
       composing: delimiter
-      width: 15
+      width: 13.25
       hilited_key_back_color: benter
       key_text_size: '20'
       key_back_color: c1
@@ -1327,6 +1336,7 @@ preset_keyboards:
       swipe_down: Keyboard_bqrw1
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: x
       popup:
       - cut
@@ -1339,6 +1349,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: c
       popup:
       - copy
@@ -1351,6 +1362,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: v
       popup:
       - paste_clip
@@ -1363,6 +1375,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: b
       popup:
       - ;
@@ -1373,6 +1386,7 @@ preset_keyboards:
       swipe_down: ;
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: n
       popup:
       - ':'
@@ -1383,6 +1397,7 @@ preset_keyboards:
       swipe_down: ':'
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: m
       popup:
       - /
@@ -1393,8 +1408,9 @@ preset_keyboards:
       swipe_down: /
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: BackSpace
-      width: 15
+      width: 13.25
       key_text_size: '18'
       key_back_color: c2
       key_text_color: th1
@@ -1570,7 +1586,7 @@ preset_keyboards:
       swipe_down: '0'
       key_back_color: bh1
       key_text_color: th1
-    - width: 5
+    - width: 0.5
       key_back_color: bh2
       key_text_color: th2
     - click: a
@@ -1585,6 +1601,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: s
       popup:
       - '`'
@@ -1595,6 +1612,7 @@ preset_keyboards:
       swipe_down: '`'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: d
       popup:
       - '@'
@@ -1605,6 +1623,7 @@ preset_keyboards:
       swipe_down: '@'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: f
       popup:
       - '#'
@@ -1615,6 +1634,7 @@ preset_keyboards:
       swipe_down: '#'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: g
       popup:
       - $
@@ -1625,6 +1645,7 @@ preset_keyboards:
       swipe_down: $
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: h
       popup:
       - '*'
@@ -1635,6 +1656,7 @@ preset_keyboards:
       swipe_down: '*'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: j
       popup:
       - “”{Left}
@@ -1645,6 +1667,7 @@ preset_keyboards:
       swipe_down: “”{Left}
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: k
       popup:
       - (-)
@@ -1655,6 +1678,7 @@ preset_keyboards:
       swipe_down: (){Left}
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: l
       popup:
       - \
@@ -1665,7 +1689,8 @@ preset_keyboards:
       swipe_down: \
       key_back_color: bh2
       key_text_color: th2
-    - width: 5
+      width: 11
+    - width: 0.5
       key_back_color: bh2
       key_text_color: th2
     - click: Shift_L
@@ -1673,7 +1698,7 @@ preset_keyboards:
       label_symbol: ' '
       double_click: Shift_L3
       composing: delimiter
-      width: 15
+      width: 13.25
       hilited_key_back_color: benter
       key_text_size: '20'
       key_back_color: c1
@@ -1689,6 +1714,7 @@ preset_keyboards:
       swipe_down: Keyboard_bqrw1
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: x
       popup:
       - cut
@@ -1701,6 +1727,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: c
       popup:
       - copy
@@ -1713,6 +1740,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: v
       popup:
       - paste_clip
@@ -1725,6 +1753,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: b
       popup:
       - ;
@@ -1735,6 +1764,7 @@ preset_keyboards:
       swipe_down: ;
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: n
       popup:
       - ':'
@@ -1745,6 +1775,7 @@ preset_keyboards:
       swipe_down: ':'
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: m
       popup:
       - /
@@ -1755,8 +1786,9 @@ preset_keyboards:
       swipe_down: /
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: BackSpace
-      width: 15
+      width: 13.25
       key_text_size: '18'
       key_back_color: c2
       key_text_color: th1
@@ -2438,7 +2470,7 @@ preset_keyboards:
       swipe_down: '0'
       key_back_color: bh1
       key_text_color: th1
-    - width: 5
+    - width: 0.5
       key_back_color: bh2
       key_text_color: th2
     - click: a
@@ -2453,6 +2485,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: s
       popup:
       - '`'
@@ -2463,6 +2496,7 @@ preset_keyboards:
       swipe_down: '`'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: d
       popup:
       - '@'
@@ -2473,6 +2507,7 @@ preset_keyboards:
       swipe_down: '@'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: f
       popup:
       - '#'
@@ -2483,6 +2518,7 @@ preset_keyboards:
       swipe_down: '#'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: g
       popup:
       - $
@@ -2493,6 +2529,7 @@ preset_keyboards:
       swipe_down: $
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: h
       popup:
       - '*'
@@ -2503,6 +2540,7 @@ preset_keyboards:
       swipe_down: '*'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: j
       popup:
       - “”{Left}
@@ -2513,6 +2551,7 @@ preset_keyboards:
       swipe_down: “”{Left}
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: k
       popup:
       - (-)
@@ -2523,6 +2562,7 @@ preset_keyboards:
       swipe_down: (){Left}
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: l
       popup:
       - \
@@ -2533,7 +2573,8 @@ preset_keyboards:
       swipe_down: \
       key_back_color: bh2
       key_text_color: th2
-    - width: 5
+      width: 11
+    - width: 0.5
       key_back_color: bh2
       key_text_color: th2
     - click: Shift_L
@@ -2541,7 +2582,7 @@ preset_keyboards:
       label_symbol: ' '
       double_click: Shift_L3
       composing: /
-      width: 15
+      width: 13.25
       hilited_key_back_color: benter
       key_text_size: '20'
       key_back_color: c1
@@ -2557,6 +2598,7 @@ preset_keyboards:
       swipe_down: Keyboard_bqrw1
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: x
       popup:
       - cut
@@ -2569,6 +2611,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: c
       popup:
       - copy
@@ -2581,6 +2624,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: v
       popup:
       - paste_clip
@@ -2593,6 +2637,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: b
       popup:
       - ;
@@ -2603,6 +2648,7 @@ preset_keyboards:
       swipe_down: ;
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: n
       popup:
       - ':'
@@ -2613,6 +2659,7 @@ preset_keyboards:
       swipe_down: ':'
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: m
       popup:
       - /
@@ -2623,8 +2670,9 @@ preset_keyboards:
       swipe_down: /
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: BackSpace
-      width: 15
+      width: 13.25
       key_text_size: '18'
       key_back_color: c2
       key_text_color: th1
@@ -2800,7 +2848,7 @@ preset_keyboards:
       swipe_down: '0'
       key_back_color: bh1
       key_text_color: th1
-    - width: 5
+    - width: 0.5
       key_back_color: bh2
       key_text_color: th2
     - click: a
@@ -2815,6 +2863,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: s
       popup:
       - '`'
@@ -2825,6 +2874,7 @@ preset_keyboards:
       swipe_down: '`'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: d
       popup:
       - '@'
@@ -2835,6 +2885,7 @@ preset_keyboards:
       swipe_down: '@'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: f
       popup:
       - '#'
@@ -2845,6 +2896,7 @@ preset_keyboards:
       swipe_down: '#'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: g
       popup:
       - $
@@ -2855,6 +2907,7 @@ preset_keyboards:
       swipe_down: $
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: h
       popup:
       - '*'
@@ -2865,6 +2918,7 @@ preset_keyboards:
       swipe_down: '*'
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: j
       popup:
       - “”{Left}
@@ -2875,6 +2929,7 @@ preset_keyboards:
       swipe_down: “”{Left}
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: k
       popup:
       - (-)
@@ -2885,6 +2940,7 @@ preset_keyboards:
       swipe_down: (){Left}
       key_back_color: bh2
       key_text_color: th2
+      width: 11
     - click: l
       popup:
       - \
@@ -2895,7 +2951,8 @@ preset_keyboards:
       swipe_down: \
       key_back_color: bh2
       key_text_color: th2
-    - width: 5
+      width: 11
+    - width: 0.5
       key_back_color: bh2
       key_text_color: th2
     - click: Shift_L
@@ -2903,7 +2960,7 @@ preset_keyboards:
       label_symbol: ' '
       double_click: Shift_L3
       composing: /
-      width: 15
+      width: 13.25
       hilited_key_back_color: benter
       key_text_size: '20'
       key_back_color: c1
@@ -2919,6 +2976,7 @@ preset_keyboards:
       swipe_down: Keyboard_bqrw1
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: x
       popup:
       - cut
@@ -2931,6 +2989,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: c
       popup:
       - copy
@@ -2943,6 +3002,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: v
       popup:
       - paste_clip
@@ -2955,6 +3015,7 @@ preset_keyboards:
       key_symbol_offset_y: 3
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: b
       popup:
       - ;
@@ -2965,6 +3026,7 @@ preset_keyboards:
       swipe_down: ;
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: n
       popup:
       - ':'
@@ -2975,6 +3037,7 @@ preset_keyboards:
       swipe_down: ':'
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: m
       popup:
       - /
@@ -2985,8 +3048,9 @@ preset_keyboards:
       swipe_down: /
       key_back_color: bh3
       key_text_color: th3
+      width: 10.5
     - click: BackSpace
-      width: 15
+      width: 13.25
       key_text_size: '18'
       key_back_color: c2
       key_text_color: th1

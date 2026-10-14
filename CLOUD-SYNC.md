@@ -25,3 +25,8 @@ Classic theme personal variant based on harry10086/mytrime rime/classic.trime.ya
 ## 0.2.7 菜单修正版
 
 方案菜单根据视口和项目数量调整行高，并独立处理系统导航栏底部 inset，保留小屏及大字体下滚动。主键盘和同步逻辑未更改。
+
+
+## 0.2.8
+
+Keyboard height 208dp (previously 260dp), narrower gaps and wider second/third letter rows. Foreground GitHub latest-release checking, bounded APK download, digest/package/version/signature validation and user-confirmed Android installation. No embedded credentials or silent installation.
