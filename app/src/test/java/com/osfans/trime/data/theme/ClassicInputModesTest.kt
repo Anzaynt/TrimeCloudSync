@@ -24,6 +24,9 @@ class ClassicInputModesTest : StringSpec({
     }
 
     "caps is a sticky modifier and becomes delimiter only in Chinese composition" {
+        val oldLookup = KeyCode.androidKeyNameToCode
+        try {
+            KeyCode.androidKeyNameToCode = { 0 }
         val theme = ThemeTestSupport.decodeBuiltinTheme("classic.trime.yaml")
         val action = KeyAction(KeyActionToken.Plain("Cloud_caps"), theme.presetKeys)
         action.code shouldBe KeyEvent.KEYCODE_SHIFT_LEFT
@@ -38,6 +41,9 @@ class ClassicInputModesTest : StringSpec({
             key.label shouldBe ""
             key.longClick shouldBe null
             key.doubleClick shouldBe null
+        }
+        } finally {
+            KeyCode.androidKeyNameToCode = oldLookup
         }
     }
 
