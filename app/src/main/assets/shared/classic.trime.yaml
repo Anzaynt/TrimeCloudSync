@@ -1326,7 +1326,7 @@ preset_keyboards:
       width: 9.5
     - width: 7.25
     - width: 2.5
-    - click: Shift_L
+    - click: delimiter
       long_click: Shift_L
       label_symbol: ' '
       double_click: Shift_L3
@@ -1337,7 +1337,6 @@ preset_keyboards:
       key_back_color: c1
       key_text_color: th1
       key_border: 0
-      click: delimiter
       label: 分词
     - click: z
       popup:
@@ -2648,7 +2647,7 @@ preset_keyboards:
       width: 9.5
     - width: 7.25
     - width: 2.5
-    - click: Shift_L
+    - click: delimiter
       long_click: Shift_L
       label_symbol: ' '
       double_click: Shift_L3
@@ -2659,7 +2658,6 @@ preset_keyboards:
       key_back_color: c1
       key_text_color: th1
       key_border: 0
-      click: delimiter
       label: 分词
     - click: z
       popup:
@@ -3057,7 +3055,7 @@ preset_keyboards:
       width: 9.5
     - width: 7.25
     - width: 2.5
-    - click: Shift_L
+    - click: delimiter
       long_click: Shift_L
       label_symbol: ' '
       double_click: Shift_L3
@@ -3068,7 +3066,6 @@ preset_keyboards:
       key_back_color: c1
       key_text_color: th1
       key_border: 0
-      click: delimiter
       label: 分词
     - click: z
       popup:

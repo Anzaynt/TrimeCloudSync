@@ -2,8 +2,31 @@
 from pathlib import Path
 import yaml
 
+class UniqueKeyLoader(yaml.SafeLoader):
+    """Match the Android theme parser: never silently accept duplicate fields."""
+
+def unique_mapping(loader, node):
+    result = {}
+    for key_node, value_node in node.value:
+        key = loader.construct_object(key_node)
+        if key in result:
+            raise yaml.constructor.ConstructorError(
+                'while constructing a mapping', node.start_mark,
+                f'duplicate key: {key}', key_node.start_mark)
+        result[key] = loader.construct_object(value_node)
+    return result
+
+UniqueKeyLoader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, unique_mapping)
+try:
+    yaml.load('click: Shift_L\nclick: delimiter\n', Loader=UniqueKeyLoader)
+except yaml.constructor.ConstructorError:
+    pass
+else:
+    raise AssertionError('Duplicate key guard did not reject conflicting actions')
+
 root = Path(__file__).resolve().parents[1]
-theme = yaml.safe_load((root / 'app/src/main/assets/shared/classic.trime.yaml').read_text(encoding='utf-8'))
+theme = yaml.load((root / 'app/src/main/assets/shared/classic.trime.yaml').read_text(encoding='utf-8'), Loader=UniqueKeyLoader)
+print('PASS: strict YAML parsing rejects duplicate fields')
 for name in ['default', 'letter', 'wanxiang_pro', 'wanxiang']:
     keyboard = theme['preset_keyboards'][name]
     keys = keyboard['keys']
