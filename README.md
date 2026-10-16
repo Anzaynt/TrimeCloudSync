@@ -1,13 +1,13 @@
 # 同文·云同步 / TrimeCloudSync
 
-基于 [同文输入法 Trime](https://github.com/osfans/trime) 的个人定制版，集成 Rime S3 同步、GitHub 主题导入和“桉 泽”键盘。Android 包名 `top.loto2.rimecloudime`，当前版本 **0.2.8**。
+基于 [同文输入法 Trime](https://github.com/osfans/trime) 的个人定制版，集成 Rime S3 同步、GitHub 主题导入和“桉 泽”键盘。Android 包名 `top.loto2.rimecloudime`，当前源码版本 **0.2.9**（尚未发布 APK）。
 
 ## 下载
 
 - [最新版 APK、对应源码与验证记录](https://github.com/Anzaynt/TrimeCloudSync/releases/latest)
-- [安装及本版说明](docs/矮键盘与在线更新-0.2.8使用说明.md)
+- [0.2.9 仅拉取与键位布局说明](docs/仅拉取与键位布局-0.2.9使用说明.md)
 
-0.2.8 把主键盘高度缩短约五分之一，加宽第二、三排字母键，并新增应用内 GitHub 更新检查、下载及系统安装入口。菜单按可用空间在四列和五列之间适配，避让导航区并可滚动。保留“桉 泽”空格键、工具栏中英切换、A 全选和已有云同步。可覆盖安装此前同签名版本，不需要先卸载或清除应用数据。尚未进行安卓真机测试。
+0.2.9 新增默认开启的“仅拉取不上传”，手动及后台同步只把云端词库合并到手机，避免手机推送覆盖电脑记录。QWERTY 起改为错位字母排列，底排独立提供符号、数字、逗号、空格、句号、中英切换和回车；上方工具栏、配色与总键盘高度保留。原签名及 Android SDK 尚未迁移，本次仅交付源码与补丁，尚未生成正式 APK、发布 Release 或进行安卓真机测试。
 
 ## 在另一台电脑继续开发
 

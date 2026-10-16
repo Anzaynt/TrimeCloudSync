@@ -15,8 +15,16 @@ public final class S3Client {
     private static final String HOST = "s3.loto2.top";
     private final String access, secret;
     private final File cache;
+    private final java.util.function.BooleanSupplier readOnly;
     public S3Client(String access, String secret, File cache) {
+        this(access, secret, cache, false);
+    }
+    public S3Client(String access, String secret, File cache, boolean readOnly) {
+        this(access, secret, cache, () -> readOnly);
+    }
+    public S3Client(String access, String secret, File cache, java.util.function.BooleanSupplier readOnly) {
         this.access = access; this.secret = secret; this.cache = cache;
+        this.readOnly = readOnly;
         if (!cache.exists() && !cache.mkdirs()) throw new IllegalStateException("无法建立缓存目录");
     }
     public static class HttpError extends IOException {
@@ -43,6 +51,7 @@ public final class S3Client {
     private static String hashText(String s) throws Exception { return hex(MessageDigest.getInstance("SHA-256").digest(s.getBytes(StandardCharsets.UTF_8))); }
     private static String encode(String s) { StringBuilder out=new StringBuilder();for(byte b:s.getBytes(StandardCharsets.UTF_8)){int c=b&255;if(c=='/'||c=='-'||c=='_'||c=='.'||c=='~'||c>='a'&&c<='z'||c>='A'&&c<='Z'||c>='0'&&c<='9')out.append((char)c);else out.append(String.format(Locale.US,"%%%02X",c));}return out.toString(); }
     private Reply request(String method,String key,File body,String condition,String value,long limit) throws Exception {
+        if (!"GET".equals(method) && readOnly.getAsBoolean()) throw new IllegalStateException("仅拉取模式禁止写入云端");
         String stamp=DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'",Locale.US).withZone(ZoneOffset.UTC).format(Instant.now());
         String date=stamp.substring(0,8), scope=date+"/us-east-1/s3/aws4_request";
         String path=encode("/sync/rime/v1/"+key);

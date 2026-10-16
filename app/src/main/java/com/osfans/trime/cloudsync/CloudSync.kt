@@ -47,7 +47,9 @@ object CloudSync {
         try {
             check(!RimeDataSync.usesExternalSync()) { "云同步使用应用专属存储；请在存储设置中关闭外部目录同步，避免两套同步互相覆盖" }
             val credentials = CloudCredentials(context)
-            val client = S3Client(credentials.access(), credentials.secret(), cache)
+            val pullOnly = credentials.isPullOnly()
+            val client = S3Client(credentials.access(), credentials.secret(), cache,
+                java.util.function.BooleanSupplier { pullOnly || credentials.isPullOnly() })
             SyncStorage.pruneObjects(cache, cache.listFiles().orEmpty().filter { it.name.matches(Regex("[0-9a-f]{64}")) }.map { it.name }.toSet())
             SyncStorage.pruneBackups(File(work, "backups"))
             val session = RimeDaemon.createSession(sessionName)
@@ -62,7 +64,8 @@ object CloudSync {
                 val current = client.get("current.json", 4L * 1024 * 1024).use { reply ->
                     val manifest = JSONObject(reply.file.readText())
                     validate(manifest)
-                    manifest to (reply.etag ?: error("S3 未提供版本校验；停止上传"))
+                    check(pullOnly || reply.etag != null) { "S3 未提供版本校验；停止上传" }
+                    manifest to reply.etag
                 }
                 val manifest = current.first
                 val downloaded = linkedMapOf<String, File>()
@@ -122,9 +125,20 @@ object CloudSync {
                     progress("正在部署方案…")
                     session.runOnReady { deploy(skipImport = true) }
                 }
-                progress("正在合并词库并导出本机快照…")
+                progress(if (pullOnly) "正在将云端词库合并到手机…" else "正在合并词库并导出本机快照…")
                 val started = System.currentTimeMillis()
-                check(session.runOnReady { syncUserData() }) { "Rime 原生词库合并失败；停止上传" }
+                check(session.runOnReady { syncUserData() }) { "Rime 原生词库合并失败；同步停止" }
+                if (pullOnly) {
+                    // Native sync exports a local snapshot too; nothing is sent back to S3.
+                    val completed = OffsetDateTime.now(ZoneOffset.ofHours(8)).toString()
+                    credentials.prefs.edit().putString("last_success", completed).remove("last_error").apply()
+                    File(work, "last-success.json").writeText(manifest.toString())
+                    RimeMaintenanceMutex.withLock {
+                        SyncStorage.prunePeers(syncRoot, ownId, "cloud-${manifest.getString("device_id")}")
+                    }
+                    progress("拉取成功：$completed\n云端词库已合并到手机，未上传或修改云端数据。")
+                    return@withContext
+                }
                 val captures = linkedMapOf<String, File>()
                 try {
                     RimeMaintenanceMutex.withLock {

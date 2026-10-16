@@ -1,5 +1,7 @@
 # Cloud Sync fork 0.2.3
 
+Latest source update: **0.2.9**. Adds default-on pull-only mode shared by manual and background sync, including a network-level write guard. Updates the four main alphabet layouts to staggered rows with independent symbol/number/language keys; keeps toolbar, colors and overall height. See [0.2.9 guide](docs/仅拉取与键位布局-0.2.9使用说明.md). Source-only delivery; original signing key and Android SDK are not available on this machine. Earlier entries below describe historical versions.
+
 Base commit: af23c4a631274d118ed76ae77e6dc8d8f7024c56. Package top.loto2.rimecloudime; JNI namespace com.osfans.trime. Min SDK 26; compile SDK 37; target SDK 35. JDK 17 / Gradle 9.7.1 / Build Tools 36.0.0; see build-cloud.ps1. Corresponding native dependencies and pinned prebuilt libraries are included with source/provenance. Fork code changes are GPL-3.0-or-later; bundled Hanamaru repository does not declare a license; retain original attribution and provenance for this personal build.
 
 S3 synchronization retains desktop file manifest, performs native dictionary union and coverage verification, publishes snapshots using If-Match CAS, serializes native maintenance, encrypts credentials with Android Keystore. Download object cache retains current references; config backups have a two-generation / 128 MiB cap. No credentials are embedded.

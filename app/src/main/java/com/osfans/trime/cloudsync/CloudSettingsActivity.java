@@ -12,7 +12,7 @@ import java.io.*;
 import java.util.concurrent.TimeUnit;
 public class CloudSettingsActivity extends Activity {
     private AppUpdates appUpdates;
-    private TextView status;private EditText access,secret;private Button save,sync;private CheckBox automatic;private CloudCredentials credentials;
+    private TextView status;private EditText access,secret;private Button save,sync;private CheckBox automatic,pullOnly;private CloudCredentials credentials;
     @Override public void onCreate(Bundle saved){super.onCreate(saved);credentials=new CloudCredentials(this);
         ScrollView scroll=new ScrollView(this);LinearLayout content=new LinearLayout(this);content.setOrientation(1);int p=(int)(22*getResources().getDisplayMetrics().density);content.setPadding(p,p,p,p);scroll.addView(content);setContentView(scroll);scroll.setOnApplyWindowInsetsListener((v,insets)->{content.setPadding(p,p+insets.getSystemWindowInsetTop(),p,p+insets.getSystemWindowInsetBottom());return insets;});
         TextView title=new TextView(this);title.setText("同文 · 云同步");title.setTextSize(28);content.addView(title);
@@ -25,7 +25,11 @@ public class CloudSettingsActivity extends Activity {
         access=new EditText(this);access.setHint("S3 Access Key");access.setSingleLine(true);access.setText(credentials.prefs.getString("access",""));content.addView(access);
         secret=new EditText(this);secret.setHint("S3 Secret Key（本机加密保存）");secret.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);secret.setSingleLine(true);secret.setSaveEnabled(false);secret.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO);content.addView(secret);
         save=new Button(this);save.setText("保存密钥");content.addView(save);save.setOnClickListener(v->{try{credentials.save(access.getText().toString(),secret.getText().toString());secret.setText("");status.setText("密钥已加密保存");}catch(Exception e){status.setText(e.getMessage());}});
-        sync=new Button(this);sync.setText("一键拉取、合并并上传");content.addView(sync);sync.setOnClickListener(v->{sync.setEnabled(false);save.setEnabled(false);automatic.setEnabled(false);CloudSync.start(this,new CloudSync.Callback(){public void onMessage(String message){if(!isDestroyed())status.setText(message);}public void onDone(boolean success){if(!isDestroyed()){sync.setEnabled(true);save.setEnabled(true);automatic.setEnabled(true);}}});});
+        pullOnly=new CheckBox(this);pullOnly.setText("仅拉取不上传（推荐，保护电脑记录）");pullOnly.setChecked(credentials.isPullOnly());content.addView(pullOnly);
+        TextView directionGuide=new TextView(this);directionGuide.setText("默认只把云端方案和词库拉取、合并到手机，不上传手机记录，也不修改云端版本。关闭此选项后恢复双向同步。");content.addView(directionGuide);
+        sync=new Button(this);updateSyncLabel();content.addView(sync);
+        pullOnly.setOnCheckedChangeListener((button,checked)->{credentials.prefs.edit().putBoolean("pull_only",checked).apply();updateSyncLabel();});
+        sync.setOnClickListener(v->{sync.setEnabled(false);save.setEnabled(false);automatic.setEnabled(false);pullOnly.setEnabled(false);CloudSync.start(this,new CloudSync.Callback(){public void onMessage(String message){if(!isDestroyed())status.setText(message);}public void onDone(boolean success){if(!isDestroyed()){sync.setEnabled(true);save.setEnabled(true);automatic.setEnabled(true);pullOnly.setEnabled(true);}}});});
         automatic=new CheckBox(this);automatic.setText("每小时自动同步（省电策略可能延迟）");automatic.setChecked(credentials.prefs.getBoolean("automatic",false));content.addView(automatic);
         automatic.setOnCheckedChangeListener((button,checked)->{if(checked&&credentials.prefs.getString("last_success","").isEmpty()){automatic.setChecked(false);status.setText("请先完成一次手动同步，再启用后台同步。");return;}credentials.prefs.edit().putBoolean("automatic",checked).apply();WorkManager wm=WorkManager.getInstance(this);if(checked){Constraints constraints=new Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build();PeriodicWorkRequest request=new PeriodicWorkRequest.Builder(CloudSyncWorker.class,1,TimeUnit.HOURS).setConstraints(constraints).build();wm.enqueueUniquePeriodicWork("rime-s3-hourly",ExistingPeriodicWorkPolicy.KEEP,request);}else wm.cancelUniqueWork("rime-s3-hourly");});
         status=new TextView(this);status.setTextSize(16);status.setText("S3：s3.loto2.top / sync\n最近成功："+credentials.prefs.getString("last_success","尚未同步")+"\n"+credentials.prefs.getString("last_error",""));content.addView(status);
@@ -42,6 +46,8 @@ public class CloudSettingsActivity extends Activity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         appUpdates.checkAutomatically();
     }
+
+    private void updateSyncLabel(){sync.setText(pullOnly.isChecked()?"一键拉取并合并（不上传）":"一键拉取、合并并上传");}
 
     @Override protected void onResume(){super.onResume();if(appUpdates!=null)appUpdates.resumeInstall();}
     @Override protected void onDestroy(){if(appUpdates!=null)appUpdates.destroy();super.onDestroy();}

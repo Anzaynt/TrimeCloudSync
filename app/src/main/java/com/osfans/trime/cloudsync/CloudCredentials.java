@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import javax.crypto.*;
 import javax.crypto.spec.GCMParameterSpec;
 public class CloudCredentials {
+    public boolean isPullOnly(){return prefs.getBoolean("pull_only",true);}
     public final SharedPreferences prefs;
     public CloudCredentials(Context ctx){prefs=ctx.getSharedPreferences("cloud-sync",Context.MODE_PRIVATE);}
     private SecretKey key() throws Exception {KeyStore store=KeyStore.getInstance("AndroidKeyStore");store.load(null);if(!store.containsAlias("rimecloud-s3")){KeyGenerator g=KeyGenerator.getInstance("AES","AndroidKeyStore");g.init(new KeyGenParameterSpec.Builder("rimecloud-s3",KeyProperties.PURPOSE_ENCRYPT|KeyProperties.PURPOSE_DECRYPT).setBlockModes(KeyProperties.BLOCK_MODE_GCM).setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE).build());g.generateKey();}return (SecretKey)store.getKey("rimecloud-s3",null);}

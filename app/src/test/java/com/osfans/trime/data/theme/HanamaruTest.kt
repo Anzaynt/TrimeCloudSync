@@ -20,20 +20,31 @@ class HanamaruTest : StringSpec({
         theme.presetColorSchemes.containsKey("wechat_dark") shouldBe true
         val keys = theme.presetKeyboards.getValue("default").keys
         theme.style.horizontalGap shouldBe 1
-        keys[11].width shouldBe 11f
-        keys[22].width shouldBe 10.5f
-        listOf(0..9, 10..20, 21..29, 30..34).forEach { row ->
-            row.sumOf { keys[it].width.takeIf { value -> value > 0 }?.toDouble() ?: 10.0 } shouldBe 100.0
+        for (name in listOf("default", "letter", "wanxiang_pro", "wanxiang")) {
+            val keyboard = theme.presetKeyboards.getValue(name)
+            keyboard.horizontalGap shouldBe 6
+            keyboard.verticalGap shouldBe 9
+            keyboard.keys.size shouldBe 43
+            listOf(0..11, 12..22, 23..33, 34..42).forEach { row ->
+                row.sumOf { keyboard.keys[it].width.toDouble() } shouldBe 100.0
+            }
+            val actions = keyboard.keys.mapNotNull { (it.click as? com.osfans.trime.data.theme.model.KeyActionToken.Plain)?.token }
+            actions.take(10) shouldBe "qwertyuiop".map { it.toString() }
+            actions.drop(10).take(9) shouldBe "asdfghjkl".map { it.toString() }
+            actions.takeLast(7) shouldBe listOf("liquid_keyboard_cn1", "Keyboard_number", ",", "space", ".", "Mode_switch", "Return")
+            keyboard.keys.first { it.click == com.osfans.trime.data.theme.model.KeyActionToken.Plain("a") }.longClick shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("select_all")
         }
+        keys[24].click shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("delimiter")
+        theme.presetKeyboards.getValue("letter").keys[24].click shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("Shift_L")
         val space = keys.first { it.click == com.osfans.trime.data.theme.model.KeyActionToken.Plain("space") }
-        space.width shouldBe 40f
-        space.longClick shouldBe null
+        space.width shouldBe 23f
+        space.longClick shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("VOICE_ASSIST")
         space.label shouldBe "桉 泽"
-        space.labelSymbol shouldBe ""
-        theme.presetKeyboards.getValue("letter").keys.first { it.click == com.osfans.trime.data.theme.model.KeyActionToken.Plain("space") }.longClick shouldBe null
+        space.labelSymbol shouldBe "ic@microphone"
+        theme.presetKeyboards.getValue("letter").keys.first { it.click == com.osfans.trime.data.theme.model.KeyActionToken.Plain("space") }.longClick shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("VOICE_ASSIST")
         space.swipeLeft shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("Page_Up")
         val enter = keys.first { it.click == com.osfans.trime.data.theme.model.KeyActionToken.Plain("Return") }
-        enter.width shouldBe 20f
+        enter.width shouldBe 14.25f
         keys.any { it.click == com.osfans.trime.data.theme.model.KeyActionToken.Plain(",") } shouldBe true
         keys.any { it.click == com.osfans.trime.data.theme.model.KeyActionToken.Plain(".") } shouldBe true
         theme.toolBar.buttons.map { it.action } shouldBe listOf("Hide", "Mode_switch", "clipboard_window", "Keyboard_numberb", "undo")
