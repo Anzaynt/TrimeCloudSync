@@ -25,8 +25,8 @@ android {
         applicationId = "top.loto2.rimecloudime"
         minSdk = 26
         targetSdk = 35
-        versionCode = 20261020
-        versionName = "3.3.12-cloud0.2.9"
+        versionCode = 20261021
+        versionName = "3.3.12-cloud0.2.10"
 
         multiDexEnabled = true
         buildConfigField("String", "BUILDER", "\"${project.builder}\"")

@@ -119,6 +119,10 @@ class CommonKeyboardActionListener(override val di: DI) : DIAware {
             }
 
             override fun onAction(action: KeyAction) {
+                if (action.command == "cloud_caps") {
+                    service.postRimeJob { setRuntimeOption("ascii_mode", true) }
+                    return
+                }
                 val text = action.getText(KeyboardWindow.currentKeyboard)
                 val shouldHandle = when {
                     action.commit.isNotEmpty() -> {
@@ -179,6 +183,12 @@ class CommonKeyboardActionListener(override val di: DI) : DIAware {
                 val arg = expandActiveText(action.option)
 
                 when (action.command) {
+                    "cloud_symbol" -> service.postRimeJob {
+                        // Finish pending Chinese before inserting exactly the
+                        // advertised symbol, independent of caps or punctuation mode.
+                        commitComposition()
+                        service.commitText(action.option)
+                    }
                     "liquid_keyboard" -> handleLiquidKeyboard(arg)
                     "menu_keyboard" -> windowManager.attachWindow(SwitchOptionWindow(di))
                     "clipboard_window" -> handleClipboardWindow(arg)

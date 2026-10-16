@@ -200,6 +200,9 @@ class KeyView(
                 action.isShiftLock xor (behavior == KeyBehavior.LONG_CLICK),
                 action.modifierKeyOnMask,
             )
+            // The personal caps key also enters ASCII mode. Preserve the normal
+            // sticky modifier path so subsequent letters do not release caps.
+            if (action.command == "cloud_caps") keyboardActionListener.onAction(action)
             keyboardView.invalidateAllKeys()
             return
         }

@@ -1,5 +1,9 @@
 # Cloud Sync fork 0.2.3
 
+## 0.2.10
+
+Restores lowercase Chinese by default. The personal Shift key locks caps and enters ASCII mode; only pending Chinese composition replaces it with the delimiter action. The language key now resolves to the application's SWITCH_CHARSET handler, mode changes are remembered, and returning to Chinese clears caps. ASCII comma/period and the 28 advertised popup symbols use literal insertion after committing any Chinese composition, independent of Shift. Existing space/voice configuration is unchanged. Adds ClassicInputModesTest and extends strict YAML/layout checks. See [0.2.10 guide](docs/输入模式与长按符号-0.2.10使用说明.md).
+
 Latest release: **0.2.9**. Adds default-on pull-only mode shared by manual and background sync, including a network-level write guard. Updates the four main alphabet layouts to staggered rows with independent symbol/number/language keys; keeps toolbar, colors and overall height. Duplicate delimiter actions were fixed in bd1e8bd. The server build uses the original signing certificate; all eight targeted Android unit tests pass. See [0.2.9 guide](docs/仅拉取与键位布局-0.2.9使用说明.md) and the [published release](https://github.com/Anzaynt/TrimeCloudSync/releases/tag/v0.2.9). No physical-device testing has been performed. Earlier entries below describe historical versions.
 
 Base commit: af23c4a631274d118ed76ae77e6dc8d8f7024c56. Package top.loto2.rimecloudime; JNI namespace com.osfans.trime. Min SDK 26; compile SDK 37; target SDK 35. JDK 17 / Gradle 9.7.1 / Build Tools 36.0.0; see build-cloud.ps1. Corresponding native dependencies and pinned prebuilt libraries are included with source/provenance. Fork code changes are GPL-3.0-or-later; bundled Hanamaru repository does not declare a license; retain original attribution and provenance for this personal build.

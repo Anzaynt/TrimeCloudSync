@@ -34,8 +34,9 @@ class HanamaruTest : StringSpec({
             actions.takeLast(7) shouldBe listOf("liquid_keyboard_cn1", "Keyboard_number", ",", "space", ".", "Mode_switch", "Return")
             keyboard.keys.first { it.click == com.osfans.trime.data.theme.model.KeyActionToken.Plain("a") }.longClick shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("select_all")
         }
-        keys[24].click shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("delimiter")
-        theme.presetKeyboards.getValue("letter").keys[24].click shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("Shift_L")
+        keys[24].click shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("Cloud_caps")
+        keys[24].composing shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("delimiter")
+        theme.presetKeyboards.getValue("letter").keys[24].click shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("Cloud_caps")
         val space = keys.first { it.click == com.osfans.trime.data.theme.model.KeyActionToken.Plain("space") }
         space.width shouldBe 23f
         space.longClick shouldBe com.osfans.trime.data.theme.model.KeyActionToken.Plain("VOICE_ASSIST")

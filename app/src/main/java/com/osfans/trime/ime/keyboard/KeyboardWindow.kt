@@ -394,9 +394,10 @@ class KeyboardWindow(di: DI) :
                 }
             }
 
-            option == "ascii_mode" && !value.value -> {
+            option == "ascii_mode" -> {
+                activeKeyboard?.lastAsciiMode = value.value
                 // 回到中文时，释放 Shift 锁定
-                activeKeyboard?.resetShift()
+                if (!value.value) activeKeyboard?.resetShift()
             }
         }
         currentKeyboardView?.invalidateAllKeys()
